@@ -1,4 +1,10 @@
 # PiHeadlessWifi
+⚡ A plug-and-play Wi-Fi setup script for Raspberry Pi using iwd and systemd-networkd — supports both online and offline usage.
+Ideal for headless or minimal Raspberry Pi OS (Bookworm+) setups.
+Automatically disables wpa_supplicant, configures iwd with AutoConnect and DHCP, enables SSH, and reboots.
+The online version installs missing packages, while the offline version includes dependency checks for safe, no-network environments.
+
+
 
 # 📶 setup-iwd-on-pi.sh
 
