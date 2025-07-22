@@ -7,7 +7,7 @@ Perfect for headless setups or minimal Raspberry Pi OS installations (like Bookw
 
 ---
 
-## 🚀 How to Use
+## 🚀 How to Use (Online)
 
 ### 1. Set Wi-Fi Country (Important)
 
@@ -39,6 +39,27 @@ chmod +x setup-iwd-on-pi.sh
 ```bash
 sudo ./setup-iwd-on-pi.sh
 ```
+
+
+## 🚀 How to Use (Offline)
+Here's a fully offline-capable version of your setup-iwd-on-pi.sh script for Raspberry Pi. It avoids all internet access by removing apt update && apt install and instead assumes:
+
+1. iwd, systemd-networkd, and ssh are already installed.
+
+2. You're using Raspberry Pi OS Bookworm Lite or newer, which includes iwd and systemd-networkd by default.
+
+### Same as 🚀 How to Use (Online)
+
+⚠️ Important Notes
+Don’t run this unless iwd is already available. On Bookworm Lite, it usually is.
+
+If you're unsure if iwd is present, check first with:
+
+```bash
+which iwd
+```
+
+
 
 ## 🧪 Test the Connection
 After rebooting or restarting services:
