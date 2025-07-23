@@ -79,6 +79,13 @@ sudo systemctl enable ssh || { echo "❌ Failed to enable SSH."; exit 1; }
 sudo systemctl restart ssh || { echo "❌ Failed to restart SSH."; exit 1; }
 sudo systemctl enable systemd-networkd || { echo "❌ Failed to enable systemd-networkd."; exit 1; }
 sudo systemctl restart systemd-networkd || { echo "❌ Failed to restart systemd-networkd."; exit 1; }
-echo "✅ Setup complete. Rebooting in 5 seconds..."
-sleep 5
-sudo reboot || { echo "❌ Failed to reboot the system."; exit 1; }
+# === ASK FOR REBOOT ===
+echo "Do you want to reboot now? (yes/no):"
+read REBOOT_INPUT
+if [[ "$REBOOT_INPUT" == "yes" ]]; then
+  echo "🔄 Rebooting now..."
+  sudo reboot || { echo "❌ Failed to reboot the system."; exit 1; }
+else
+  echo "🚀 Setup is complete. No reboot will be performed."
+  exit 0
+fi
