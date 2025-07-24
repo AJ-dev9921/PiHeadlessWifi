@@ -94,6 +94,9 @@ AutoConnect=true
 Hidden=${HIDDEN}
 EOF
 
+# 🔒 Secure the .psk file
+sudo chmod 600 /var/lib/iwd/${SSID}.psk || { echo "❌ Failed to set secure permissions on .psk file."; exit 1; }
+
 echo "🌍 Configuring DHCP with systemd-networkd..."
 sudo mkdir -p /etc/systemd/network || { echo "❌ Failed to create network directory."; exit 1; }
 cat <<EOF | sudo tee /etc/systemd/network/25-wireless.network > /dev/null || { echo "❌ Failed to write network configuration."; exit 1; }
