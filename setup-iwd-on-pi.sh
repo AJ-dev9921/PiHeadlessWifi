@@ -36,29 +36,29 @@ sudo apt update
 echo "🔍 Checking if 'iw' is installed..."
 if ! dpkg -l | grep -qw iw; then
   echo "📦 'iw' is not installed. Installing..."
-  sudo apt install iw -y || { echo "❌ Failed to install 'iw'."; exit 1; }
+  sudo apt install iw || { echo "❌ Failed to install 'iw'."; exit 1; }
 else
   echo "📦 'iw' is already installed. Checking for updates..."
-  sudo apt upgrade iw -y || { echo "❌ Failed to upgrade 'iw'."; exit 1; }
+  sudo apt upgrade iw || { echo "❌ Failed to upgrade 'iw'."; exit 1; }
 fi
 
 # === CHECK IF iwd AND systemd-networkd ARE INSTALLED ===
 echo "🔍 Checking if iwd is installed..."
 if ! dpkg -l | grep -q iwd; then
   echo "📦 iwd is not installed. Installing..."
-  sudo apt install iwd -y || { echo "❌ Failed to install iwd."; exit 1; }
+  sudo apt install iwd || { echo "❌ Failed to install iwd."; exit 1; }
 else
   echo "📦 iwd is already installed. Checking for updates..."
-  sudo apt upgrade iwd -y || { echo "❌ Failed to upgrade iwd."; exit 1; }
+  sudo apt upgrade iwd || { echo "❌ Failed to upgrade iwd."; exit 1; }
 fi
 
 echo "🔍 Checking if systemd-networkd is installed..."
 if ! dpkg -l | grep -q systemd-networkd; then
   echo "📦 systemd-networkd is not installed. Installing..."
-  sudo apt install systemd-networkd -y || { echo "❌ Failed to install systemd-networkd."; exit 1; }
+  sudo apt install systemd-networkd || { echo "❌ Failed to install systemd-networkd."; exit 1; }
 else
   echo "📦 systemd-networkd is already installed. Checking for updates..."
-  sudo apt upgrade systemd-networkd -y || { echo "❌ Failed to upgrade systemd-networkd."; exit 1; }
+  sudo apt upgrade systemd-networkd || { echo "❌ Failed to upgrade systemd-networkd."; exit 1; }
 fi
 
 # === USER CONFIG & VERIFICATION ===
